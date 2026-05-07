@@ -25,6 +25,7 @@
     --paper:       #FFFFFF;
     --navy:        #0A1628;
     --navy-mid:    #102040;
+    --nav-bg:      rgba(242,245,250,0.92);
 
     --sans:  "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
     --serif: "IBM Plex Serif", Georgia, serif;
@@ -32,6 +33,23 @@
 
     --max: 1160px;
     --r:   6px;
+  }
+
+  [data-theme="dark"] {
+    --bg:          #0C1828;
+    --bg-deep:     #091422;
+    --ink:         #E2EAF4;
+    --ink-soft:    #A8BECE;
+    --ink-muted:   #6A8299;
+    --line:        #1C3050;
+    --line-soft:   #162540;
+    --accent:      #4A9EFF;
+    --accent-lt:   #5BAAFF;
+    --accent-pale: #0D2040;
+    --paper:       #111E2E;
+    --navy:        #060F1C;
+    --navy-mid:    #0A1828;
+    --nav-bg:      rgba(10,20,36,0.95);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,6 +63,7 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
   }
 
   ::selection { background: var(--accent); color: #fff; }
@@ -54,7 +73,7 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(242,245,250,0.92);
+    background: var(--nav-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line-soft);
@@ -91,6 +110,29 @@
     transition: color 0.2s;
   }
   nav a:hover { color: var(--accent); }
+
+  .theme-toggle {
+    background: var(--bg-deep);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    border-radius: 99px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    font-family: var(--sans);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-pale);
+  }
 
   /* ── LAYOUT ── */
   .section {
@@ -236,7 +278,7 @@
   /* portrait */
   .portrait-wrap {
     position: relative;
-    width: 240px;
+    width: 320px;
     flex-shrink: 0;
   }
   .portrait-wrap img {
@@ -717,10 +759,10 @@
     .section, .section-sm { padding: 56px 24px; }
     nav .row { padding: 14px 24px; }
     nav ul { gap: 18px; }
-    nav ul li:nth-child(2), nav ul li:nth-child(3) { display: none; }
+    nav ul li:nth-child(3) { display: none; }
 
     .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-    .portrait-wrap { width: 160px; }
+    .portrait-wrap { width: 220px; }
 
     .about-grid { grid-template-columns: 1fr; gap: 32px; }
 
@@ -756,6 +798,9 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <span id="theme-icon">☀</span>
+    </button>
   </div>
 </nav>
 
@@ -769,7 +814,7 @@
         <span class="alt">— Genevieve.</span>
       </h1>
       <p class="sub">
-        <strong>Project Manager &amp; MIS Honors Student</strong> at SJSU. Currently leading an Agile team at NASA Ames. I bridge business strategy, operations, and applied AI to deliver measurable results.
+        <strong>Project Manager &amp; Business Honors Student</strong> at SJSU. Currently working with a project team at NASA Ames. I bridge business strategy, operations, and applied AI to help teams do their best work.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#projects">View My Work ↗</a>
@@ -794,22 +839,22 @@
   <div class="about-grid reveal">
     <div>
       <p>
-        I'm a <strong>Business Administration Honors student</strong> at San José State University, concentrating in Management Information Systems — the intersection of people, process, and technology. I'm also a <strong>Stanford MS&amp;E Rising Stars Fellow</strong>.
+        I'm a <strong>Business Administration Honors student</strong> at San José State University, studying how technology helps businesses run better. I was also selected as a <strong>Stanford MS&amp;E Rising Stars Fellow</strong> — a competitive program for students in management and engineering.
       </p>
       <p>
-        My experience spans Agile project management at NASA Ames, data analysis and operations support, and hands-on AI engineering with agentic architectures, MCP, and RAG pipelines. I'm most effective when helping teams cut inefficiency and scale their processes with structured PM and practical AI.
+        My experience includes managing a project team at NASA, analyzing data to support decision-making, and building AI tools that help teams save time on repetitive work. I'm most effective when I can find where a team is slowing down — and fix it.
       </p>
       <p>
-        First-gen advocate and someone who gets genuinely excited when a workflow improvement is measurable.
+        First-generation college student, and someone who believes every improvement should be something you can actually measure.
       </p>
     </div>
     <div class="goal-box">
       <h3>Professional Goals</h3>
       <p>
-        Seeking a <strong>summer or fall 2026 internship</strong> in project management, product operations, or AI/tech business roles — and open to <strong>full-time positions</strong> following graduation in December 2026. I want to contribute to teams building real products and developing scalable processes, ideally where PM and technology intersect.
+        Looking for a <strong>summer or fall 2026 internship</strong> in project management, business operations, or technology roles — and open to <strong>full-time positions</strong> after graduation in December 2026. I want to work with teams that build real products and care about how they work together, not just what they ship.
       </p>
       <div class="meta-list">
-        <div class="row-item"><strong>Degree</strong> B.B.S. · MIS · Honors — Expected Dec 2026</div>
+        <div class="row-item"><strong>Degree</strong> B.B.A. · MIS · Honors — Expected Dec 2026</div>
         <div class="row-item"><strong>School</strong> San José State University</div>
         <div class="row-item"><strong>Location</strong> Milpitas, CA · Open to hybrid/remote</div>
         <div class="row-item"><strong>Certifications</strong> Agentic AI · LangGraph (LinkedIn Learning)</div>
@@ -835,9 +880,9 @@
         <div class="role-meta">Jan 2026 — May 2026 · 8 Sprints · 1 Handoff · NASA Ames Research Center</div>
         <h3>Project Manager &amp; Scrum Master — NASA S3VI Web App</h3>
         <ul class="nasa-bullets">
-          <li><strong>Sprint planning &amp; execution</strong> — Ran all Agile ceremonies across 8 sprints; kept scope, timelines, and deliverables on track. Closed Sprint 8 with 9 of 10 deliverables on time.</li>
-          <li><strong>Leadership &amp; communication</strong> — Main point of contact between a 5-person team, NASA sponsor, and faculty advisor. Brought the team together through a yellow/red project recovery and delivered an accepted final product.</li>
-          <li><strong>AI &amp; Jira optimization</strong> — Used Claude and Gemini to accelerate status reports, requirements, and retro analysis (~40% less doc time). Managed all work tracking and sprint health in Jira.</li>
+          <li><strong>Keeping the team organized</strong> — Set up weekly meetings and goals so everyone knew what to work on. Helped the team stay on schedule across 8 work cycles and close out with 9 of 10 tasks done on time.</li>
+          <li><strong>Supporting people &amp; connections</strong> — Helped coordinate communication between the team, a NASA project lead, and a faculty advisor — working alongside the team's communication and technical leads. When the project fell behind, the team worked together to get it back on track.</li>
+          <li><strong>AI &amp; Jira optimization</strong> — Brought in AI tools (Claude and Gemini) to help draft status updates and meeting notes, freeing up the team to focus on the actual work. Used Jira to keep tasks visible and organized for everyone.</li>
         </ul>
         <div class="tags">
           <span>Jira</span><span>Confluence</span><span>Scrum</span><span>BRD</span>
@@ -847,15 +892,15 @@
       <div class="stats-col">
         <div class="stat">
           <div class="num">~<em>40</em>%</div>
-          <div class="lbl">Reduction in PM documentation time with AI-assisted workflows</div>
+          <div class="lbl">Less time spent writing reports and updates, by using AI tools</div>
         </div>
         <div class="stat">
           <div class="num">~<em>25</em>%</div>
-          <div class="lbl">Projected expansion in stakeholder data access</div>
+          <div class="lbl">More people able to view and use project data through the new app</div>
         </div>
         <div class="stat">
           <div class="num"><em>9</em>/10</div>
-          <div class="lbl">Close-out deliverables shipped on time after sprint recovery</div>
+          <div class="lbl">Tasks completed on time after getting the project back on track</div>
         </div>
       </div>
     </div>
@@ -864,9 +909,9 @@
     <div class="projects-grid reveal">
       <article class="project-card">
         <div class="num">01</div>
-        <h3>Multi-Agent AI Tech Support System</h3>
+        <h3>AI-Powered Customer Support System</h3>
         <div class="role-meta">Tech Lead · Nov–Dec 2025</div>
-        <p>Multi-agent routing with Claude &amp; Gemini. MCP + RAG for doc retrieval. Customer-service UI deployed in Lovable.</p>
+        <p>Multi-agent routing with Claude &amp; Gemini — multiple AI assistants working together to handle different types of questions. MCP + RAG for doc retrieval — AI that searches product documents to find the right answer. Deployed as a customer-service website.</p>
         <div class="tags">
           <span>Claude</span><span>Gemini</span><span>MCP</span><span>RAG</span><span>Lovable</span><span>Colab</span>
         </div>
@@ -874,9 +919,9 @@
 
       <article class="project-card">
         <div class="num">02</div>
-        <h3>Marketing &amp; Supply Chain AI Agents</h3>
+        <h3>AI Tools for Marketing &amp; Supply Chain</h3>
         <div class="role-meta">Project Lead · Nov 2025</div>
-        <p>Led a team of 5 to build two specialized AI agents: one for marketing analysis, one for supply chain optimization. Owned full project lifecycle through demo.</p>
+        <p>Led a team of 5 to build two AI tools — one to help analyze marketing performance, and one to help manage inventory and product flow. Handled planning, timelines, and the final demo presentation.</p>
         <div class="tags">
           <span>Agentic AI</span><span>Team Lead</span><span>Lifecycle PM</span>
         </div>
@@ -884,9 +929,9 @@
 
       <article class="project-card">
         <div class="num">03</div>
-        <h3>Customer Segmentation via Data Science</h3>
+        <h3>Understanding Customers Through Data</h3>
         <div class="role-meta">Project &amp; Tech Lead · Nov–Dec 2024</div>
-        <p>5-person team. Designed ERD, optimized SQL queries on real e-commerce data, and delivered actionable customer behavior insights.</p>
+        <p>Led a team of 5 to analyze online shopper behavior. Designed ERD and optimized SQL queries on real e-commerce data to group customers by buying habits, then turned the findings into clear recommendations for a marketing strategy.</p>
         <div class="tags">
           <span>SQL</span><span>ERD</span><span>Pandas</span><span>Segmentation</span>
         </div>
@@ -994,18 +1039,41 @@
     </div>
     <footer>
       <div>© 2026 · Chieu Anh (Genevieve) Le</div>
-      <div>BBA Honors · MIS · SJSU</div>
+      <div>B.B.A. · Honors · MIS · SJSU</div>
     </footer>
   </div>
 </div>
 
 <script>
+  // ── Reveal on scroll ──
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
     });
   }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+  // ── Light / Dark mode ──
+  const root = document.documentElement;
+  const btn  = document.getElementById("theme-toggle");
+  const icon = document.getElementById("theme-icon");
+
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    icon.textContent = theme === "dark" ? "☀" : "☾";
+    btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+  }
+
+  // Respect saved preference, then system preference
+  const saved   = localStorage.getItem("theme");
+  const sysDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(saved || (sysDark ? "dark" : "light"));
+
+  btn.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    localStorage.setItem("theme", next);
+    applyTheme(next);
+  });
 </script>
 
 </body>
